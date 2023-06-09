@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+  </head>
+  <body>
+    <img src="../../img/space.jpeg" alt="" style="display: none;">
+    <canvas id="canvas" height='320' width='480' style="border: 1px solid #000;">
+    <script>
+      const canvas = document.getElementById('canvas')
+      const img = document.querySelector('img')
+
+      img.onload = function () {
+        const ctx = canvas.getContext('2d')
+        ctx.fillStyle = 'rgb(200, 0, 0)'
+        ctx.arc(100, 100, 50, 0, 2 * Math.PI)
+        // ctx.clip()
+        ctx.drawImage(img, 0, 0)
+      }
+    </script>
+  </body>
+</html>
