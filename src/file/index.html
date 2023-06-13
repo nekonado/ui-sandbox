@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" id="uploader" />
+    <img src="" id="target" width="500" height="300" />
+    <!-- <a href="./" id="link" target="_blank">DataURI</a> -->
+    <script>
+      const uploader = document.getElementById("uploader");
+      const target = document.getElementById("target");
+      const link = document.getElementById("link");
+      uploader.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.addEventListener("load", (e) => {
+          const result = e.target.result;
+          // console.log(result);
+          target.src = result;
+          // link.href = result;
+        });
+        reader.readAsDataURL(file);
+      });
+    </script>
+  </body>
+</html>
